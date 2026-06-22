@@ -4,14 +4,14 @@ const mongoose = require('mongoose');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000;[cite: 1]
+const PORT = process.env.PORT || 3000;
 
 // Middleware para procesar JSON y archivos estáticos
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Conexión a MongoDB Atlas
-mongoose.connect(process.env.MONGODB_URI)[cite: 1]
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('Conectado exitosamente a MongoDB Atlas'))
     .catch(err => console.error('Error de conexión a la base de datos:', err));
 
@@ -70,5 +70,5 @@ app.delete('/api/productos/:id', async (req, res) => {
 
 // Iniciar el servidor
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);[cite: 1]
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
